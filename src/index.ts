@@ -3,13 +3,22 @@ import stream from './stream';
 import {parser, reader} from './transformer';
 
 type Variables = Record<string, string>;
+type Options = {
+    bufferSize: number,
+    cwd: string,
+};
 
 /**
  *
- * @param bufferSize
+ * @param options
  */
-const factory = ({bufferSize}: { bufferSize: number }): Promise<Variables> => {
-    const file = resolve(process.cwd(), '.env');
+const factory = (options: Partial<Options> = {}): Promise<Variables> => {
+    const {
+        bufferSize = 1024 * 4,
+        cwd = process.cwd()
+    } = options;
+
+    const file = resolve(cwd, '.env');
     const variables: Variables = {};
 
     return new Promise((resolve): void => {
@@ -52,6 +61,4 @@ const factory = ({bufferSize}: { bufferSize: number }): Promise<Variables> => {
  * Date: 25.01.2022
  * Time: 21:52
  */
-export default factory({
-    bufferSize: ~~process.env.SEVL_BUFFER_SIZE || 1024 * 4
-});
+export default factory;
