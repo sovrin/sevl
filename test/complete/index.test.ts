@@ -5,7 +5,7 @@ describe('nenv', () => {
     decache('../../src');
     describe('.env in project', () => {
         process.chdir(__dirname);
-        process.env.TIEL_BUFFER_SIZE = undefined;
+        process.env.SEVL_BUFFER_SIZE = undefined;
         const {default: promise} = require('../../src');
 
         const TABLE = {

@@ -7,7 +7,7 @@ describe('nenv', () => {
 
     describe('.env in project with small buffer size', () => {
         process.chdir(__dirname);
-        process.env.TIEL_BUFFER_SIZE = "4";
+        process.env.SEVL_BUFFER_SIZE = "4";
         const {default: promise} = require('../../src');
 
         const TABLE = {

@@ -1,7 +1,7 @@
 {
-  "name": "tiel",
-  "version": "0.1.0",
-  "description": "tiny .env loader",
+  "name": "sevl",
+  "version": "0.1.1",
+  "description": "small .env loader",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "types": "./types/index.d.ts",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sovrin/tiel"
+    "url": "https://github.com/sovrin/sevl"
   },
   "license": "MIT",
   "keywords": [],

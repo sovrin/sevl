@@ -54,5 +54,5 @@ const factory = ({bufferSize}: { bufferSize: number }): Promise<Variables> => {
  * Time: 21:52
  */
 export default factory({
-    bufferSize: ~~process.env.TIEL_BUFFER_SIZE || 1024 * 4
+    bufferSize: ~~process.env.SEVL_BUFFER_SIZE || 1024 * 4
 });

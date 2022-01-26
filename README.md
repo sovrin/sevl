@@ -1,4 +1,4 @@
-<h1 align="left">tiel</h1>
+<h1 align="left">sevl</h1>
 
 [![npm version][npm-src]][npm-href]
 [![types][types-src]][types-href]
@@ -9,35 +9,35 @@
 [![devDependencies][devDep-src]][devDep-href]
 [![License][license-src]][license-href]
 
-> tiny .env loader
+> small .env loader
 
 ## Installation
 ```bash
-$ npm i tiel
+$ npm i sevl
 ```
 
 ## Usage
 ```js
-import 'tiel';
+import 'sevl';
 // thats it
 ```
 
 ## Licence
 MIT License, see [LICENSE](./LICENSE)
 
-[npm-src]: https://badgen.net/npm/v/tiel
-[npm-href]: https://www.npmjs.com/package/tiel
-[size-src]: https://badgen.net/packagephobia/install/tiel
-[size-href]: https://packagephobia.com/result?p=tiel
-[types-src]: https://badgen.net/npm/types/tiel
-[types-href]: https://www.npmjs.com/package/tiel
-[coverage-src]: https://coveralls.io/repos/github/sovrin/tiel/badge.svg?branch=master
-[coverage-href]: https://coveralls.io/github/sovrin/tiel?branch=master
-[vulnerabilities-src]: https://snyk.io/test/github/sovrin/tiel/badge.svg
-[vulnerabilities-href]: https://snyk.io/test/github/sovrin/tiel
-[dep-src]: https://badgen.net/david/dep/sovrin/tiel
-[dep-href]: https://badgen.net/david/dep/sovrin/tiel
-[devDep-src]: https://badgen.net/david/dev/sovrin/tiel
-[devDep-href]: https://badgen.net/david/dev/sovrin/tiel
-[license-src]: https://badgen.net/github/license/sovrin/tiel
+[npm-src]: https://badgen.net/npm/v/sevl
+[npm-href]: https://www.npmjs.com/package/sevl
+[size-src]: https://badgen.net/packagephobia/install/sevl
+[size-href]: https://packagephobia.com/result?p=sevl
+[types-src]: https://badgen.net/npm/types/sevl
+[types-href]: https://www.npmjs.com/package/sevl
+[coverage-src]: https://coveralls.io/repos/github/sovrin/sevl/badge.svg?branch=master
+[coverage-href]: https://coveralls.io/github/sovrin/sevl?branch=master
+[vulnerabilities-src]: https://snyk.io/test/github/sovrin/sevl/badge.svg
+[vulnerabilities-href]: https://snyk.io/test/github/sovrin/sevl
+[dep-src]: https://badgen.net/david/dep/sovrin/sevl
+[dep-href]: https://badgen.net/david/dep/sovrin/sevl
+[devDep-src]: https://badgen.net/david/dev/sovrin/sevl
+[devDep-href]: https://badgen.net/david/dev/sovrin/sevl
+[license-src]: https://badgen.net/github/license/sovrin/sevl
 [license-href]: LICENSE
