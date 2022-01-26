@@ -18,9 +18,17 @@ $ npm i sevl
 
 ## Usage
 ```js
-import 'sevl';
-// thats it
+import sevl from 'sevl';
+
+sevl() //asyncronously imports .env to process.env
 ```
+
+### `sevl(config: Config)`
+#### `Config`
+|              | default       | description                      |
+|:-------------|:--------------|:---------------------------------|
+| `cwd`        | process.cwd() | current work dir                 |
+| `bufferSize` | 4069          | buffer size of stream            |
 
 ## Licence
 MIT License, see [LICENSE](./LICENSE)
