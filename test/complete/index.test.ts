@@ -1,14 +1,9 @@
 import assert from 'assert';
-import decache from 'decache';
+import sevl from '../../src'
 
 describe('nenv', () => {
-    decache('../../src');
 
     describe('.env in project', () => {
-        process.chdir(__dirname);
-        process.env.SEVL_BUFFER_SIZE = undefined;
-        const {default: promise} = require('../../src');
-
         const TABLE = {
             'PLAIN':                                'string_plain',
             'SINGLE_QUOTED':                        'string_single_quoted',
@@ -36,7 +31,7 @@ describe('nenv', () => {
         };
 
         it('should load parse and set process.env', () => {
-            promise.then((variables) => {
+            sevl({cwd: __dirname}).then((variables) => {
                 for (const key in TABLE) {
                     assert(TABLE[key] === variables[key]);
                     assert(variables[key] === process.env[key]);

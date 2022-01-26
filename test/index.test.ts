@@ -1,10 +1,10 @@
 import assert from 'assert';
-import sevl from '../../src';
+import sevl from '../src';
 
 describe('nenv', () => {
-    describe('no .env in project', () => {
+    describe('no config', () => {
         it('should do nothing', () => {
-            return sevl({cwd: __dirname}).then((variables) => {
+            return sevl().then((variables) => {
                 assert(variables === undefined);
             });
         });
