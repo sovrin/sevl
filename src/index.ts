@@ -12,7 +12,7 @@ const factory = ({bufferSize}: { bufferSize: number }): Promise<Variables> => {
     const file = resolve(process.cwd(), '.env');
     const variables: Variables = {};
 
-    return new Promise((resolve, reject): void => {
+    return new Promise((resolve): void => {
         /**
          *
          * @param key
@@ -32,10 +32,9 @@ const factory = ({bufferSize}: { bufferSize: number }): Promise<Variables> => {
 
         /**
          *
-         * @param error
          */
-        const onError = (error): void => {
-            reject(error);
+        const onError = (): void => {
+            resolve(undefined);
         }
 
         stream(file, bufferSize)

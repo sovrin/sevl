@@ -3,6 +3,7 @@ import decache from 'decache';
 
 describe('nenv', () => {
     decache('../../src');
+
     describe('.env in project', () => {
         process.chdir(__dirname);
         process.env.SEVL_BUFFER_SIZE = undefined;

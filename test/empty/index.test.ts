@@ -1,4 +1,4 @@
-import {assertThrowsAsync} from '../utils';
+import assert from 'assert';
 import decache from 'decache';
 
 describe('nenv', () => {
@@ -9,8 +9,10 @@ describe('nenv', () => {
         process.env.SEVL_BUFFER_SIZE = undefined;
         const {default: promise} = require('../../src');
 
-        it('should do nothing', async () => {
-            await assertThrowsAsync(async () => await promise, /Error/);
+        it('should do nothing', () => {
+            return promise.then((variables) => {
+                assert(variables === undefined);
+            });
         });
     });
 });

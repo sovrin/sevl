@@ -1,6 +1,5 @@
 import assert from 'assert';
 import decache from 'decache';
-import {describe} from 'mocha';
 
 describe('nenv', () => {
     decache('../../src');
@@ -15,7 +14,7 @@ describe('nenv', () => {
         };
 
         it('should load parse and set process.env', () => {
-            promise.then((variables) => {
+            return promise.then((variables) => {
                 for (const key in TABLE) {
                     assert(TABLE[key] === variables[key]);
                     assert(variables[key] === process.env[key]);
