@@ -28,8 +28,12 @@ const factory = (options: Partial<Options> = {}): Promise<Variables> => {
          * @param value
          */
         const onData = ([key, value]: [string, string]): void => {
-            process.env[key] = value;
-            variables[key] = value;
+            if (process.env[key]) {
+                variables[key] = process.env[key];
+            } else {
+                process.env[key] = value;
+                variables[key] = value;
+            }
         };
 
         /**
