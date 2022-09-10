@@ -1,6 +1,6 @@
 {
   "name": "sevl",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "small .env loader",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
