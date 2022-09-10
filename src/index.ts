@@ -2,7 +2,7 @@ import {resolve} from 'path';
 import stream from './stream';
 import {parser, reader} from './transformer';
 
-type Variables = Record<string, string>;
+type Variables<T> = Record<keyof T, string> | Record<string, never>;
 type Options = {
     bufferSize: number,
     cwd: string,
@@ -12,14 +12,14 @@ type Options = {
  *
  * @param options
  */
-const factory = (options: Partial<Options> = {}): Promise<Variables> => {
+const factory = <T extends Variables<T>>(options: Partial<Options> = {}): Promise<Variables<T>> => {
     const {
         bufferSize = 1024 * 4,
-        cwd = process.cwd()
+        cwd = process.cwd(),
     } = options;
 
     const file = resolve(cwd, '.env');
-    const variables: Variables = {};
+    const variables = <Variables<T>>{};
 
     return new Promise((resolve): void => {
         /**
@@ -48,7 +48,7 @@ const factory = (options: Partial<Options> = {}): Promise<Variables> => {
          */
         const onError = (): void => {
             resolve(undefined);
-        }
+        };
 
         stream(file, bufferSize)
             .on('error', onError)
