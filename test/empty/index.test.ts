@@ -3,9 +3,11 @@ import sevl from '../../src';
 
 describe('nenv', () => {
     describe('no .env in project', () => {
-        it('should do nothing', () => {
+        it('shouldn\'t add new variables', () => {
+            const before = {...process.env};
+
             return sevl({cwd: __dirname}).then((variables) => {
-                assert(variables === undefined);
+                assert(JSON.stringify(variables) === JSON.stringify(before));
             });
         });
     });
