@@ -1,6 +1,6 @@
 {
   "name": "sevl",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "small .env loader",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
@@ -31,7 +31,7 @@
     "@types/node": "^17.0.10",
     "mocha": "^9.1.4",
     "nyc": "^15.1.0",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.5"
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
   }
 }
