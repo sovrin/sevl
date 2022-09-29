@@ -76,6 +76,10 @@ const factory = (): Transform => {
             value = sanitize(value);
         }
 
+        if (value == undefined) {
+            return callback();
+        }
+
         this.push([
             key,
             value,

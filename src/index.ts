@@ -24,13 +24,22 @@ const factory = <T extends Variables<T>>(options: Partial<Options> = {}): Promis
     return new Promise((resolve): void => {
         /**
          *
+         * @param variables
+         */
+        const update = (variables) => {
+            return {
+                ...variables,
+                ...process.env,
+            }
+        }
+
+        /**
+         *
          * @param key
          * @param value
          */
         const onData = ([key, value]: [string, string]): void => {
-            if (process.env[key]) {
-                variables[key] = process.env[key];
-            } else {
+            if (!process.env[key]) {
                 process.env[key] = value;
                 variables[key] = value;
             }
@@ -40,14 +49,14 @@ const factory = <T extends Variables<T>>(options: Partial<Options> = {}): Promis
          *
          */
         const onEnd = (): void => {
-            resolve(variables);
+            resolve(update(variables));
         };
 
         /**
          *
          */
         const onError = (): void => {
-            resolve(undefined);
+            resolve(update(variables));
         };
 
         stream(file, bufferSize)
