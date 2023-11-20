@@ -14,7 +14,7 @@ type Options = {
  */
 const factory = <T extends Variables<T>>(options: Partial<Options> = {}): Promise<Variables<T>> => {
     const {
-        bufferSize = 1024 * 4,
+        bufferSize = 1024 * 32,
         cwd = process.cwd(),
     } = options;
 
