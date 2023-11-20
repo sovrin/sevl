@@ -1,8 +1,10 @@
 import assert from 'assert';
 import sevl from '../../src';
 
-    process.env.PORT = '80';
 describe('sevl', () => {
+    before(() => {
+        process.env.PORT = '80';
+    });
 
     const TABLE = {
         'PORT': '80',
@@ -19,5 +21,9 @@ describe('sevl', () => {
                 }
             });
         });
+    });
+
+    after(() => {
+        delete process.env.PORT;
     });
 });
