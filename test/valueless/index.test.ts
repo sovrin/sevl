@@ -1,7 +1,7 @@
 import assert from 'assert';
 import sevl from '../../src';
 
-describe('nenv', () => {
+describe('sevl', () => {
     describe('.env in project with only a key', () => {
         const TABLE = {
             'foobar': undefined,

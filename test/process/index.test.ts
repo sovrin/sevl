@@ -1,8 +1,8 @@
 import assert from 'assert';
 import sevl from '../../src';
 
-describe('nenv', () => {
     process.env.PORT = '80';
+describe('sevl', () => {
 
     const TABLE = {
         'PORT': '80',
