@@ -18,7 +18,25 @@ const factory = <T extends Variables<T>>(options: Partial<Options> = {}): Promis
         cwd = process.cwd(),
     } = options;
 
-    const file = resolve(cwd, '.env');
+    /**
+     *
+     */
+    const getEnv = () => {
+        const {NODE_ENV} = process.env;
+        let env = '.env';
+
+        if (NODE_ENV === 'production') {
+            env = '.env.production';
+        } else if (NODE_ENV === 'development') {
+            env = '.env.development';
+        } else if (NODE_ENV === 'test') {
+            env = '.env.test';
+        }
+
+        return resolve(cwd, env);
+    }
+
+    const env = getEnv();
     const variables = <Variables<T>>{};
 
     return new Promise((resolve): void => {
@@ -26,7 +44,7 @@ const factory = <T extends Variables<T>>(options: Partial<Options> = {}): Promis
          *
          * @param variables
          */
-        const update = (variables) => {
+        const merge = (variables) => {
             return {
                 ...variables,
                 ...process.env,
@@ -49,17 +67,17 @@ const factory = <T extends Variables<T>>(options: Partial<Options> = {}): Promis
          *
          */
         const onEnd = (): void => {
-            resolve(update(variables));
+            resolve(merge(variables));
         };
 
         /**
          *
          */
         const onError = (): void => {
-            resolve(update(variables));
+            resolve(merge(variables));
         };
 
-        stream(file, bufferSize)
+        stream(env, bufferSize)
             .on('error', onError)
             .pipe(reader())
             .pipe(parser())
