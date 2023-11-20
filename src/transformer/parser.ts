@@ -57,10 +57,10 @@ const factory = (): Transform => {
     /**
      *
      * @param chunk
-     * @param encoding
+     * @param _encoding
      * @param callback
      */
-    function transform(chunk: string, encoding, callback: TransformCallback): void {
+    function transform(chunk: string, _encoding: string, callback: TransformCallback): void {
         chunk = trim(chunk, ' ');
         if (chunk.charAt(0) === COMMENT) {
             return callback();

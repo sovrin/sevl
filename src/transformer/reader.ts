@@ -11,16 +11,16 @@ function factory(): Transform {
     /**
      *
      * @param chunk
-     * @param encoding
+     * @param _encoding
      * @param callback
      */
-    function transform(chunk: Buffer, encoding, callback: TransformCallback): void {
+    function transform(chunk: Buffer, _encoding: string, callback: TransformCallback): void {
         if (buffer && buffer.length > 0) {
             chunk = Buffer.concat([buffer, chunk]);
         }
 
         let cursor = 0;
-        let index;
+        let index: number;
         while (true) {
             index = chunk.indexOf(LINE_BREAK, cursor);
             if (index === -1) {

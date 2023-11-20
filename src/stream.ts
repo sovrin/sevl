@@ -1,12 +1,12 @@
 import {createReadStream} from 'fs';
-import {Readable} from 'stream';
+import {ReadStream} from 'fs';
 
 /**
  *
  * @param file
  * @param bufferSize
  */
-const factory = (file: string, bufferSize: number): Readable => (
+const factory = (file: string, bufferSize: number): ReadStream => (
     createReadStream(file, {
         highWaterMark: bufferSize,
     })
