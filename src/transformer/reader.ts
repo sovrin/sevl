@@ -27,14 +27,14 @@ function factory(): Transform {
                 break;
             }
 
-            const line = chunk.slice(cursor, index);
+            const line = chunk.subarray(cursor, index);
             cursor += line.length + 1;
 
             const string = line.toString();
             this.push(string);
         }
 
-        buffer = chunk.slice(cursor, chunk.length);
+        buffer = chunk.subarray(cursor, chunk.length);
         callback();
     }
 
