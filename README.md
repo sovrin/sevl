@@ -28,7 +28,15 @@ sevl() //asyncronously imports .env to process.env
 |              | default       | description                      |
 |:-------------|:--------------|:---------------------------------|
 | `cwd`        | process.cwd() | current work dir                 |
-| `bufferSize` | 4069          | buffer size of stream            |
+| `bufferSize` | 32768         | buffer size of stream            |
+
+## Functionality
+`sevl` tries to load files in the following order:
+1. `.env.${NODE_ENV}`
+2. `.env`
+3. `.env.local`
+
+Already present environment variables and these loaded sub-sequentially will not be overwritten.
 
 ## Licence
 MIT License, see [LICENSE](./LICENSE)
